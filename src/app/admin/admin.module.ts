@@ -6,6 +6,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 // Components
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+// Services
 
 @NgModule({
   imports: [
@@ -15,7 +17,8 @@ import { LoginComponent } from './login/login.component';
     AdminRoutingModule
   ],
   declarations: [
-    LoginComponent
+    LoginComponent,
+    DashboardComponent
   ]
 })
 export class AdminModule { }

@@ -7,20 +7,23 @@
         </div>
         <div class="panel-body">
           <form role="form" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-            <fieldset>
               <div class="form-group">
                 <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus formControlName="email">
+                <div *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid">
+                  <span *ngIf="loginForm.get('email').hasError('required')">This field is required!!!</span>
+                </div>
               </div>
               <div class="form-group">
                 <input class="form-control" placeholder="Password" name="password" type="password" formControlName="password">
-              </div>            
+                <div *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid">
+                  <span *ngIf="loginForm.get('password').hasError('required')">This field is required!!!</span>
+                  <span *ngIf="loginForm.get('password').hasError('minLength')">Minimum 8 characters required</span>
+                </div>
+              </div>
               <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
-            </fieldset>
           </form>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
